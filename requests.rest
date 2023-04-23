@@ -1,0 +1,3 @@
+###
+
+GET http://localhost:7777/exchanges/eur/2012-01-02
