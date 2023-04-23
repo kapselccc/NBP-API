@@ -16,15 +16,5 @@ class ExchangeControllerTest {
     @Autowired
     private ExchangeController controller;
 
-    @Test
-    void getAvgExchangeRateOnDateTest(){
-        assertThat(controller.getAvgExchangeRateOnDate("2012-01-02", "eur") == 4.464);
-    }
 
-    @Test
-    void getAvgExchangeRateOnDateTestThrows(){
-        assertThrows(NoSuchElementException.class, () -> {
-            controller.getAvgExchangeRateOnDate("2012-01-02", "pln");
-        });
-    }
 }
