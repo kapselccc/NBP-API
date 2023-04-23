@@ -23,7 +23,7 @@ public class ExchangeService {
         return getAvgExchangeRateFromJson(response).orElseThrow();
     }
 
-    public List<Double> getMinMaxExchangeRate(String code, int n){
+    public List<Double> getMinMaxExchangeRate(String code, int n) throws IllegalArgumentException{
         if(n > 255)
         {
             throw new IllegalArgumentException("N must be <= 255");

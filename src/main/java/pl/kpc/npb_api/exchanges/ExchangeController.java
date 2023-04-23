@@ -22,7 +22,7 @@ public class ExchangeController {
     }
 
 
-    @GetMapping("{code}/{date}")
+    @GetMapping("avg/{code}/{date}")
     public ResponseEntity<Double> getAvgExchangeRate(@PathVariable("code") String code,
                                                      @PathVariable("date") String date){
         Double avg;
@@ -30,8 +30,22 @@ public class ExchangeController {
             avg = service.getAvgExchangeRateOnDate(date, code);
         }
         catch (NoSuchElementException e){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(avg);
+    }
+
+    @GetMapping("minmax/{code}/{n}")
+    public ResponseEntity<List<Double>> getMinMaxExchangeRate(@PathVariable("code") String code,
+                                                              @PathVariable("n") int n){
+        List<Double> minMax ;
+        try{
+            minMax = service.getMinMaxExchangeRate(code, n);
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(minMax);
+
     }
 }
