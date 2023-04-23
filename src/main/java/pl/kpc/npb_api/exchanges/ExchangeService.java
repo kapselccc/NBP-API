@@ -34,6 +34,9 @@ public class ExchangeService {
                 code, n));
 
         List<Double> list = getManyExchangeRateFromJson(response);
+        if(list.isEmpty()){
+            throw new NoSuchElementException();
+        }
         Collections.sort(list);
         return new ArrayList<>(List.of(list.get(0),list.get(list.size() - 1) ));
     }
@@ -45,8 +48,7 @@ public class ExchangeService {
             JSONArray ratesArray = (JSONArray) jo.get("rates");
             JSONObject ratesObject = (JSONObject) ratesArray.get(0);
             mid = (Double) ratesObject.get("mid");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
 
         return Optional.ofNullable(mid);
@@ -61,8 +63,7 @@ public class ExchangeService {
                 JSONObject ratesObject = (JSONObject) ratesArray.get(i);
                 list.add((Double) ratesObject.get("mid"));
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ignored) {
         }
         return list;
     }

@@ -4,4 +4,12 @@ GET http://localhost:7777/exchanges/avg/eur/2012-01-02
 
 ###
 
-GET http://localhost:7777/exchanges/minmax/eur/3
+GET http://localhost:7777/exchanges/minmax/eur/34
+
+###
+
+GET http://localhost:7777/exchanges/minmax/pln/3
+
+###
+
+GET http://localhost:7777/exchanges/avg/pln/2012-01-02

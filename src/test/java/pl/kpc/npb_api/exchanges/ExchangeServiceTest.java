@@ -38,6 +38,5 @@ class ExchangeServiceTest {
         List<Double> result = service.getMinMaxExchangeRate("eur", 3);
         assertEquals(result.get(0), min);
         assertEquals(result.get(1), max);
-
     }
 }

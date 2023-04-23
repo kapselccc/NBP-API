@@ -38,10 +38,10 @@ public class ExchangeController {
     @GetMapping("minmax/{code}/{n}")
     public ResponseEntity<List<Double>> getMinMaxExchangeRate(@PathVariable("code") String code,
                                                               @PathVariable("n") int n){
-        List<Double> minMax ;
+        List<Double> minMax;
         try{
             minMax = service.getMinMaxExchangeRate(code, n);
-        }catch (IllegalArgumentException e){
+        }catch (IllegalArgumentException | NoSuchElementException e){
             System.out.println(e.getMessage());
             return ResponseEntity.badRequest().build();
         }
