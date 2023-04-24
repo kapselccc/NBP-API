@@ -15,4 +15,4 @@ To run the application Run this command:
 ## How to access application UI
 
 If your server is running open your browser and go to
-http://localhost:7777/swagger-ui/index.html
+`http://localhost:7777/swagger-ui/index.html`
