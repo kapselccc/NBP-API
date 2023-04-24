@@ -48,4 +48,17 @@ public class ExchangeController {
         return ResponseEntity.ok(minMax);
 
     }
+
+    @GetMapping("difference/{code}/{n}")
+    public ResponseEntity<Double> getMajorDifference(@PathVariable("code") String code,
+                                                     @PathVariable("n") int n){
+        Double majorDifference;
+        try{
+            majorDifference = service.getMajorDifference(code, n);
+        }catch (IllegalArgumentException | NoSuchElementException e){
+            System.out.println(e.getMessage());
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(majorDifference);
+    }
 }
