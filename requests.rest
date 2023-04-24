@@ -1,0 +1,23 @@
+###
+
+GET http://localhost:7777/api/exchanges/avg/eur/2012-01-02
+
+###
+
+GET http://localhost:7777/api/exchanges/minmax/eur/34
+
+###
+
+GET http://localhost:7777/api/exchanges/minmax/pln/3
+
+###
+
+GET http://localhost:7777/api/exchanges/avg/pln/2012-01-02
+
+###
+
+GET http://localhost:7777/api/exchanges/difference/eur/7
+
+###
+
+GET http://localhost:7777/api/exchanges/difference/pln/7
