@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 
 
 @RestController
-@RequestMapping("/exchanges")
+@RequestMapping("/api/exchanges")
 public class ExchangeController {
     private final ExchangeService service;
 
